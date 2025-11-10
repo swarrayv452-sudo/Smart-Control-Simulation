@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Smart Home - About</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <header class="navbar">
-      <div class="logo">🏡 Smart Home</div>
+      <div class="logo">🏡 Smart control simulation</div>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -20,13 +20,62 @@
       </nav>
     </header>
 
-    <section class="page-section">
-      <h1>About Smart Home</h1>
+    <section class="page-section about">
+      <h2>About Smart Home</h2>
       <p>
-        The Smart Home Control System allows users to monitor and control their
-        appliances easily. It’s designed for efficiency, comfort, and
-        convenience.
+        Smart Home Control is a demo interface that simulates controlling
+        multiple appliances across rooms — lighting, fans, and air conditioners
+        — with a clear, accessible UI. The project shows a local, client-side
+        simulation of device control and visual feedback (glow, spinning fan,
+        cooling puffs).
+      </p>
+
+      <h3>Why use Smart Home?</h3>
+      <ul>
+        <li>Centralized control of appliances</li>
+        <li>Clear visual feedback when devices are on</li>
+        <li>Easy to integrate with a backend or IoT microcontroller</li>
+      </ul>
+
+      <h3>How to connect real devices</h3>
+      <p>
+        To connect to real hardware you'd typically add a backend (REST /
+        WebSocket) which relays commands to a microcontroller
+        (ESP32/ESP8266/Arduino) and confirms state back to the UI. This demo
+        keeps everything client-side for simplicity and testing.
       </p>
     </section>
+
+    <footer class="footer compact">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>🏡 Smart Home</h3>
+          <p>Making homes and workplaces smarter, safer, and more connected.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <p>Email: swarrayv452@gmail.com</p>
+          <p>Phone: +23278987876</p>
+          <p>Address: 7 Hill Station</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Smart Home | All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

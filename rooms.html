@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Smart Home - Rooms</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">🏡 Smart control simulation</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rooms.html" class="active">Rooms</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="page-section rooms-section">
+      <h2>Rooms</h2>
+      <p class="muted">
+        Unlock a room with its password (or use the master password) to access
+        controls. Security light and system totals shown below.
+      </p>
+
+      <!-- SECURITY LIGHT (top of rooms page) -->
+      <div class="security-block">
+        <div class="security-left">
+          <div class="sec-icon">🔦</div>
+          <div>
+            <strong>Security Light</strong>
+            <div class="muted">Independent security light for the property</div>
+          </div>
+        </div>
+
+        <div class="security-controls">
+          <label class="switch small">
+            <input id="security-toggle" type="checkbox" />
+            <span class="slider"></span>
+          </label>
+          <div class="sec-energy">40W</div>
+        </div>
+
+        <div class="security-visual" id="security-visual">
+          <div class="bulb-emoji">🔦</div>
+          <div class="bulb-glow"></div>
+        </div>
+      </div>
+
+      <div class="cards-grid" id="rooms-grid">
+        <!-- Sitting -->
+        <article class="room-card" data-room="sitting">
+          <div class="room-top">
+            <div class="room-left">
+              <div class="room-icon">🛋️</div>
+              <div>
+                <h3 class="room-title">Sitting Room</h3>
+                <p class="room-sub">Light · Fan · AC</p>
+              </div>
+            </div>
+
+            <div class="main-switch-wrap">
+              <label class="switch small">
+                <input
+                  type="checkbox"
+                  class="main-switch"
+                  data-room="sitting"
+                />
+                <span class="slider"></span>
+              </label>
+              <div class="small-label">Main</div>
+            </div>
+          </div>
+
+          <!-- LOCK BOX (simple inline style) -->
+          <div class="lock-box" data-room="sitting">
+            <div class="lock-title">🔒 Locked</div>
+            <input
+              type="password"
+              class="lock-input"
+              placeholder="Enter room password"
+              aria-label="Password for Sitting Room"
+            />
+            <div class="lock-actions">
+              <button class="unlock-btn" data-room="sitting">Unlock</button>
+            </div>
+            <div class="lock-hint">or use master password</div>
+            <div class="lock-error hidden"></div>
+          </div>
+
+          <!-- controls block (hidden while locked) -->
+          <div class="controls-inline hidden">
+            <div class="control-inline" data-device="light">
+              <div class="device-left">
+                <span class="device-icon">💡</span><span>Light</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="sitting"
+                  data-device="light"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="control-inline" data-device="fan">
+              <div class="device-left">
+                <span class="device-icon">🌀</span><span>Fan</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="sitting"
+                  data-device="fan"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="control-inline" data-device="ac">
+              <div class="device-left">
+                <span class="device-icon">❄️</span><span>AC</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="sitting"
+                  data-device="ac"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ENERGY BAR -->
+          <div class="energy-row">
+            <div class="energy-label">Energy:</div>
+            <div class="energy-bar-wrap">
+              <div class="energy-bar">
+                <div class="energy-fill" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="energy-watts">0W</div>
+          </div>
+
+          <div class="visual-row">
+            <div class="card-visual visual-light">
+              <div class="bulb-emoji">💡</div>
+              <div class="bulb-glow"></div>
+            </div>
+            <div class="card-visual visual-fan">
+              <div class="fan-blades">🌀</div>
+            </div>
+            <div class="card-visual visual-ac">
+              <div class="ac-unit">❄️</div>
+              <div class="ac-puffs">
+                <span class="puff"></span><span class="puff"></span
+                ><span class="puff"></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dining -->
+        <article class="room-card" data-room="dining">
+          <div class="room-top">
+            <div class="room-left">
+              <div class="room-icon">🍽️</div>
+              <div>
+                <h3 class="room-title">Dining Room</h3>
+                <p class="room-sub">Light · Fan · AC</p>
+              </div>
+            </div>
+
+            <div class="main-switch-wrap">
+              <label class="switch small">
+                <input type="checkbox" class="main-switch" data-room="dining" />
+                <span class="slider"></span>
+              </label>
+              <div class="small-label">Main</div>
+            </div>
+          </div>
+
+          <div class="lock-box" data-room="dining">
+            <div class="lock-title">🔒 Locked</div>
+            <input
+              type="password"
+              class="lock-input"
+              placeholder="Enter room password"
+            />
+            <div class="lock-actions">
+              <button class="unlock-btn" data-room="dining">Unlock</button>
+            </div>
+            <div class="lock-hint">or use master password</div>
+            <div class="lock-error hidden"></div>
+          </div>
+
+          <div class="controls-inline hidden">
+            <div class="control-inline" data-device="light">
+              <div class="device-left">
+                <span class="device-icon">💡</span><span>Light</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="dining"
+                  data-device="light"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="control-inline" data-device="fan">
+              <div class="device-left">
+                <span class="device-icon">🌀</span><span>Fan</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="dining"
+                  data-device="fan"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="control-inline" data-device="ac">
+              <div class="device-left">
+                <span class="device-icon">❄️</span><span>AC</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="dining"
+                  data-device="ac"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="energy-row">
+            <div class="energy-label">Energy:</div>
+            <div class="energy-bar-wrap">
+              <div class="energy-bar">
+                <div class="energy-fill" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="energy-watts">0W</div>
+          </div>
+
+          <div class="visual-row">
+            <div class="card-visual visual-light">
+              <div class="bulb-emoji">💡</div>
+              <div class="bulb-glow"></div>
+            </div>
+            <div class="card-visual visual-fan">
+              <div class="fan-blades">🌀</div>
+            </div>
+            <div class="card-visual visual-ac">
+              <div class="ac-unit">❄️</div>
+              <div class="ac-puffs">
+                <span class="puff"></span><span class="puff"></span
+                ><span class="puff"></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Study -->
+        <article class="room-card" data-room="study">
+          <div class="room-top">
+            <div class="room-left">
+              <div class="room-icon">📚</div>
+              <div>
+                <h3 class="room-title">Study</h3>
+                <p class="room-sub">Light · Fan · AC</p>
+              </div>
+            </div>
+
+            <div class="main-switch-wrap">
+              <label class="switch small">
+                <input type="checkbox" class="main-switch" data-room="study" />
+                <span class="slider"></span>
+              </label>
+              <div class="small-label">Main</div>
+            </div>
+          </div>
+
+          <div class="lock-box" data-room="study">
+            <div class="lock-title">🔒 Locked</div>
+            <input
+              type="password"
+              class="lock-input"
+              placeholder="Enter room password"
+            />
+            <div class="lock-actions">
+              <button class="unlock-btn" data-room="study">Unlock</button>
+            </div>
+            <div class="lock-hint">or use master password</div>
+            <div class="lock-error hidden"></div>
+          </div>
+
+          <div class="controls-inline hidden">
+            <div class="control-inline" data-device="light">
+              <div class="device-left">
+                <span class="device-icon">💡</span><span>Light</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="study"
+                  data-device="light"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="control-inline" data-device="fan">
+              <div class="device-left">
+                <span class="device-icon">🌀</span><span>Fan</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="study"
+                  data-device="fan"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="control-inline" data-device="ac">
+              <div class="device-left">
+                <span class="device-icon">❄️</span><span>AC</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="study"
+                  data-device="ac"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="energy-row">
+            <div class="energy-label">Energy:</div>
+            <div class="energy-bar-wrap">
+              <div class="energy-bar">
+                <div class="energy-fill" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="energy-watts">0W</div>
+          </div>
+
+          <div class="visual-row">
+            <div class="card-visual visual-light">
+              <div class="bulb-emoji">💡</div>
+              <div class="bulb-glow"></div>
+            </div>
+            <div class="card-visual visual-fan">
+              <div class="fan-blades">🌀</div>
+            </div>
+            <div class="card-visual visual-ac">
+              <div class="ac-unit">❄️</div>
+              <div class="ac-puffs">
+                <span class="puff"></span><span class="puff"></span
+                ><span class="puff"></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Hallway -->
+        <article class="room-card" data-room="hallway">
+          <div class="room-top">
+            <div class="room-left">
+              <div class="room-icon">🚪</div>
+              <div>
+                <h3 class="room-title">Hallway</h3>
+                <p class="room-sub">Lights only</p>
+              </div>
+            </div>
+
+            <div class="main-switch-wrap">
+              <label class="switch small">
+                <input
+                  type="checkbox"
+                  class="main-switch"
+                  data-room="hallway"
+                />
+                <span class="slider"></span>
+              </label>
+              <div class="small-label">Main</div>
+            </div>
+          </div>
+
+          <div class="lock-box" data-room="hallway">
+            <div class="lock-title">🔒 Locked</div>
+            <input
+              type="password"
+              class="lock-input"
+              placeholder="Enter room password"
+            />
+            <div class="lock-actions">
+              <button class="unlock-btn" data-room="hallway">Unlock</button>
+            </div>
+            <div class="lock-hint">or use master password</div>
+            <div class="lock-error hidden"></div>
+          </div>
+
+          <div class="controls-inline hidden">
+            <div class="control-inline" data-device="light">
+              <div class="device-left">
+                <span class="device-icon">💡</span><span>Light</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="hallway"
+                  data-device="light"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="energy-row">
+            <div class="energy-label">Energy:</div>
+            <div class="energy-bar-wrap">
+              <div class="energy-bar">
+                <div class="energy-fill" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="energy-watts">0W</div>
+          </div>
+
+          <div class="visual-row">
+            <div class="card-visual visual-light">
+              <div class="bulb-emoji">💡</div>
+              <div class="bulb-glow"></div>
+            </div>
+            <div class="card-visual visual-fan empty"></div>
+            <div class="card-visual visual-ac empty"></div>
+          </div>
+        </article>
+
+        <!-- Kitchen -->
+        <article class="room-card" data-room="kitchen">
+          <div class="room-top">
+            <div class="room-left">
+              <div class="room-icon">🍳</div>
+              <div>
+                <h3 class="room-title">Kitchen</h3>
+                <p class="room-sub">Lights only</p>
+              </div>
+            </div>
+
+            <div class="main-switch-wrap">
+              <label class="switch small">
+                <input
+                  type="checkbox"
+                  class="main-switch"
+                  data-room="kitchen"
+                />
+                <span class="slider"></span>
+              </label>
+              <div class="small-label">Main</div>
+            </div>
+          </div>
+
+          <div class="lock-box" data-room="kitchen">
+            <div class="lock-title">🔒 Locked</div>
+            <input
+              type="password"
+              class="lock-input"
+              placeholder="Enter room password"
+            />
+            <div class="lock-actions">
+              <button class="unlock-btn" data-room="kitchen">Unlock</button>
+            </div>
+            <div class="lock-hint">or use master password</div>
+            <div class="lock-error hidden"></div>
+          </div>
+
+          <div class="controls-inline hidden">
+            <div class="control-inline" data-device="light">
+              <div class="device-left">
+                <span class="device-icon">💡</span><span>Light</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="kitchen"
+                  data-device="light"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="energy-row">
+            <div class="energy-label">Energy:</div>
+            <div class="energy-bar-wrap">
+              <div class="energy-bar">
+                <div class="energy-fill" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="energy-watts">0W</div>
+          </div>
+
+          <div class="visual-row">
+            <div class="card-visual visual-light">
+              <div class="bulb-emoji">💡</div>
+              <div class="bulb-glow"></div>
+            </div>
+            <div class="card-visual visual-fan empty"></div>
+            <div class="card-visual visual-ac empty"></div>
+          </div>
+        </article>
+
+        <!-- Veranda -->
+        <article class="room-card" data-room="veranda">
+          <div class="room-top">
+            <div class="room-left">
+              <div class="room-icon">🏖️</div>
+              <div>
+                <h3 class="room-title">Veranda</h3>
+                <p class="room-sub">Lights only</p>
+              </div>
+            </div>
+
+            <div class="main-switch-wrap">
+              <label class="switch small">
+                <input
+                  type="checkbox"
+                  class="main-switch"
+                  data-room="veranda"
+                />
+                <span class="slider"></span>
+              </label>
+              <div class="small-label">Main</div>
+            </div>
+          </div>
+
+          <div class="lock-box" data-room="veranda">
+            <div class="lock-title">🔒 Locked</div>
+            <input
+              type="password"
+              class="lock-input"
+              placeholder="Enter room password"
+            />
+            <div class="lock-actions">
+              <button class="unlock-btn" data-room="veranda">Unlock</button>
+            </div>
+            <div class="lock-hint">or use master password</div>
+            <div class="lock-error hidden"></div>
+          </div>
+
+          <div class="controls-inline hidden">
+            <div class="control-inline" data-device="light">
+              <div class="device-left">
+                <span class="device-icon">💡</span><span>Light</span>
+              </div>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-room="veranda"
+                  data-device="light"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="energy-row">
+            <div class="energy-label">Energy:</div>
+            <div class="energy-bar-wrap">
+              <div class="energy-bar">
+                <div class="energy-fill" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="energy-watts">0W</div>
+          </div>
+
+          <div class="visual-row">
+            <div class="card-visual visual-light">
+              <div class="bulb-emoji">💡</div>
+              <div class="bulb-glow"></div>
+            </div>
+            <div class="card-visual visual-fan empty"></div>
+            <div class="card-visual visual-ac empty"></div>
+          </div>
+        </article>
+      </div>
+
+      <!-- TOTAL SYSTEM ENERGY -->
+      <div class="system-energy">
+        <div class="total-label">System Total</div>
+        <div class="energy-bar-wrap total">
+          <div class="energy-bar">
+            <div
+              id="system-energy-fill"
+              class="energy-fill"
+              style="width: 0%"
+            ></div>
+          </div>
+          <div id="system-energy-watts" class="energy-watts">0W</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer compact">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>🏡 Smart Home</h3>
+          <p>Making homes and workplaces smarter, safer, and more connected.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <p>Email: swarrayv452@gmail.com</p>
+          <p>Phone: +23278987876</p>
+          <p>Address: 7 Hill Station</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Smart Home | All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
